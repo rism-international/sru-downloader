@@ -7,6 +7,19 @@ Requirements
 -------------
 Java 7 or higher.
 
+Install
+--------
+If you only want to install the jar-file:
+* on Linux
+```bash
+wget https://github.com/rism-international/sru-downloader/raw/master/SRUDownloader.jar
+```
+* on Windows
+Clone this repository:
+```bash
+git clone https://github.com/rism-international/sru-downloader.git
+```
+
 Example Usage
 -------------
 E.g. to download all records from D-NLa:
