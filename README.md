@@ -5,7 +5,7 @@ Output-file is output.xml at the working directory.
 
 Requirements
 -------------
-Java 7 or higher.
+Java 8 JRE, see eg. http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html .
 
 Install
 --------
