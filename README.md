@@ -15,16 +15,16 @@ If you only want to install the jar-file:
 wget https://github.com/rism-international/sru-downloader/raw/master/SRUDownloader.jar
 ```
 * on Windows
-Clone this repository:
+Open this link in a browser:
 ```bash
-git clone https://github.com/rism-international/sru-downloader.git
+https://github.com/rism-international/sru-downloader/raw/master/SRUDownloader.jar
 ```
 
 Example Usage
 -------------
 E.g. to download all records from D-NLa:
 ```bash
-$java -jar SRUDownloader.jar "http://muscat.rism.info/sru/sources?operation=searchRetrieve&version=1.1&query=siglum=D-NLa&maximumRecords=100"
+$> java -jar SRUDownloader.jar "http://muscat.rism.info/sru/sources?operation=searchRetrieve&version=1.1&query=siglum=D-NLa&maximumRecords=100"
 ```
 For a complete description of the SRU-interface see https://github.com/rism-ch/muscat/wiki/SRU .
 
