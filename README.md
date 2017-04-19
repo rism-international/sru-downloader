@@ -1,6 +1,6 @@
 Description
 ------------
-This basic program simplifies the download of MARCXML-records at the SRU-interface of RISM. It takes the current limitation of 100 records in account, so the startRecord-parameter of the SRU-interface is taken for harvesting the complete file.
+This dead simple basic program simplifies the download of MARCXML-records at the SRU-interface of RISM. It takes the current limitation of 100 records in account, so the startRecord-parameter of the SRU-interface is taken for harvesting the complete set.
 Output-file is output.xml at the working directory.
 
 Requirements
