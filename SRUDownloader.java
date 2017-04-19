@@ -2,6 +2,8 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Files;
 import java.io.FileOutputStream;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -32,9 +34,12 @@ public class SRUDownloader
     Document tdoc = parseXML(tconnection.getInputStream());
     int No = Integer.parseInt(tdoc.getElementsByTagName("zs:numberOfRecords").item(0).getTextContent());
     System.out.println(No);
-    
-    FileOutputStream ofile = new FileOutputStream("output.xml", true);
-    String startcontent = "<zs:searchRetrieveResponse xmlns:zs='http://www.loc.gov/zing/srw/' xmlns:marc='http://www.loc.gov/MARC21/slim'><zs:version>1.1</zs:version><zs:numberOfRecords>"+No+"</zs:numberOfRecords><zs:records>";
+    String filename = "output.xml";
+    File file = new File(filename);
+    Files.deleteIfExists(file.toPath());
+
+    FileOutputStream ofile = new FileOutputStream(filename, true);
+    String startcontent = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<zs:searchRetrieveResponse xmlns:zs=\"http://www.loc.gov/zing/srw/\" xmlns:marc=\"http://www.loc.gov/MARC21/slim\">\n<zs:version>1.1</zs:version>\n<zs:numberOfRecords>"+No+"</zs:numberOfRecords>\n<zs:records>";
     byte[] scontent = startcontent.getBytes();
     ofile.write(scontent);
 
@@ -46,6 +51,7 @@ public class SRUDownloader
       URL url = new URL(srurl + startRecord);
       URLConnection connection = url.openConnection();
       Transformer transformer = TransformerFactory.newInstance().newTransformer();
+      transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
       Document doc = parseXML(connection.getInputStream());
       NodeList descNodes = doc.getElementsByTagName("zs:record");
 
