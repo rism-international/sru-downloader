@@ -9,6 +9,8 @@ Java 8 JRE, see eg. http://www.oracle.com/technetwork/java/javase/downloads/jre8
 
 Install
 --------
+__For a more complete installation and how-to description - especially with windows - see this [tutorial](tutorial.pdf)__.
+
 If you only want to install the jar-file:
 * on Linux
 ```bash
