@@ -61,6 +61,7 @@ java InstallCert muscat.rism.info
 Finally you just have to add the following to you call to the SRUDownloader:
 
 `-Djavax.net.ssl.trustStore=$PWD/jssecacerts` if you are on linux
+
 `-Djavax.net.ssl.trustStore="C:\The\Path\To\Your\Local\Directory\jssecacerts` if you are on Windows.
 
 Our above example would look like this:
