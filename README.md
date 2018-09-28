@@ -66,5 +66,5 @@ Finally you just have to add the following to you call to the SRUDownloader:
 Our above example would look like this:
 
 ```
-$> java -jar SRUDownloader.jar "http://muscat.rism.info/sru/sources?operation=searchRetrieve&version=1.1&query=siglum=D-NLa&maximumRecords=100"
+$> java -Djavax.net.ssl.trustStore=$PWD/jssecacerts -jar SRUDownloader.jar "http://muscat.rism.info/sru/sources?operation=searchRetrieve&version=1.1&query=siglum=D-NLa&maximumRecords=100"
 ```
