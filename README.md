@@ -36,3 +36,35 @@ After modifying the source file:
 ```bash
 javac SRUDownloader.java && jar cvfm SRUDownloader.jar MANIFEST.MF *.class
 ```
+
+Muscats HTTPS Connection
+------------------------
+
+Since 2018 the Muscat-Server is using an Secure Socket connection. In the consequence of it, you have to make sure, that the *.rism.info certificate is part of the trusted certificates on your system. Java usually maintains its own trust Store, which is usually in `<java-home>/lib/security/cacerts`. Please consult the java documentation on how to add a certificate to this file.
+
+If you don't want to or cannot change this file, you can make use of the InstallCert Class which is provided in this repository. InstallCert will make a copy of the trust store in a local folder and add our certificat to it. The InstallCert programme is quite well documented here:
+
+http://nodsw.com/blog/leeland/2006/12/06-no-more-unable-find-valid-certification-path-requested-target
+
+The file is compiled like this:
+
+```
+javac InstallCert.java
+```
+
+After that you run it like this:
+
+```
+java InstallCert muscat.rism.info
+```
+
+Finally you just have to add the following to you call to the SRUDownloader:
+
+`-Djavax.net.ssl.trustStore=$PWD/jssecacerts` if you are on linux
+`-Djavax.net.ssl.trustStore="C:\The\Path\To\Your\Local\Directory\jssecacerts` if you are on Windows.
+
+Our above example would look like this:
+
+```
+$> java -jar SRUDownloader.jar "http://muscat.rism.info/sru/sources?operation=searchRetrieve&version=1.1&query=siglum=D-NLa&maximumRecords=100"
+```
