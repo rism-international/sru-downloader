@@ -5,7 +5,7 @@ Output-file is output.xml at the working directory.
 
 Requirements
 -------------
-Java 8 JRE, see eg. http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html .
+Java 8 JRE
 
 Install
 --------
@@ -26,7 +26,7 @@ Example Usage
 -------------
 E.g. to download all records from D-NLa:
 ```bash
-$> java -jar SRUDownloader.jar "http://muscat.rism.info/sru/sources?operation=searchRetrieve&version=1.1&query=siglum=D-NLa&maximumRecords=100"
+$> java -jar SRUDownloader.jar "https://muscat.rism.info/sru/sources?operation=searchRetrieve&version=1.1&query=siglum=D-NLa&maximumRecords=100"
 ```
 For a complete description of the SRU-interface see https://github.com/rism-ch/muscat/wiki/SRU .
 
