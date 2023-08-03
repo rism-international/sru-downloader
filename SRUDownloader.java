@@ -30,9 +30,9 @@ public class SRUDownloader
   {
     URL turl = new URL(srurl);
     URLConnection tconnection = turl.openConnection();
-
     Document tdoc = parseXML(tconnection.getInputStream());
     int No = Integer.parseInt(tdoc.getElementsByTagName("zs:numberOfRecords").item(0).getTextContent());
+    int Maximum = tdoc.getElementsByTagName("zs:recordPosition").getLength();
     System.out.println(No);
     String filename = "output.xml";
     File file = new File(filename);
@@ -44,7 +44,7 @@ public class SRUDownloader
     ofile.write(scontent);
 
     Result output = new StreamResult(ofile);
-    for(int i=1; i<No;i+=100)
+    for(int i=1; i<No;i+=Maximum)
     {
       String startRecord = "&startRecord="+i;
       System.out.println(i);
